@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ClickMart</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Font Awesome (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- App script -->
+  <script defer src="app.js"></script>
+</head>
+<body onload="init()">
+
+  <header class="header-top">
+    <div class="container header-inner">
+      <div class="logo">
+        <i class="fas fa-cart-shopping"></i>
+        <h1>ClickMart</h1>
+      </div>
+
+      <div class="search-bar">
+        <input id="searchInput" placeholder="Search products..." />
+        <button onclick="searchProducts()"><i class="fas fa-search"></i></button>
+      </div>
+
+      <div class="user-actions">
+        <a class="cart-icon" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav container">
+    <ul class="nav-menu">
+      <li><a onclick="displayProducts('all')" class="active">All</a></li>
+      <li><a onclick="displayProducts('equipment')">Equipment</a></li>
+      <li><a onclick="displayProducts('supplies')">Supplies</a></li>
+      <li><a onclick="displayProducts('toys')">Toys</a></li>
+      <li><a onclick="displayProducts('foods')">Foods</a></li>
+    </ul>
+  </nav>
+
+  <section class="banner container">
+    <div class="banner-slide active">
+      <div class="banner-content">
+        <h2>Best Deals This Week</h2>
+        <p>Top picks at great prices — only in ClickMart.</p>
+        <a class="btn" onclick="displayProducts('all')">Shop Now</a>
+      </div>
+    </div>
+    <div class="banner-dots">
+      <span class="dot active" onclick="setSlide(0)"></span>
+      <span class="dot" onclick="setSlide(1)"></span>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="products">
+      <h2 class="section-title">Featured Products</h2>
+      <div class="product-grid"></div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>© 2025 ClickMart • All rights reserved</p>
+  </footer>
+
+  <!-- Cart sidebar -->
+  <div class="cart-overlay" onclick="closeCart()"></div>
+  <aside class="cart-sidebar">
+    <button class="close-cart" onclick="closeCart()">✖</button>
+    <h3>Your Cart</h3>
+    <div class="cart-items"></div>
+    <div class="cart-empty">Your cart is empty.</div>
+    <div class="cart-summary">
+      <div>Total: <span class="total-price">$0.00</span></div>
+      <button class="checkout-btn" onclick="goCheckout()">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+</body>
+</html>

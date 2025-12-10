@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout - ClickMart</title>
+  <link rel="stylesheet" href="checkout.css" />
+  <script defer src="app.js"></script>
+</head>
+<body onload="loadCheckout()">
+
+  <header class="header-top small">
+    <div class="container header-inner">
+      <div class="logo">
+        <i class="fas fa-cart-shopping"></i>
+        <h1>ClickMart</h1>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="checkout-container">
+      <h2>Checkout</h2>
+
+      <div id="checkout-items" class="checkout-items"></div>
+
+      <div class="checkout-total">
+        <span>Total:</span> <strong id="checkout-total">₱0.00</strong>
+      </div>
+
+      <form id="checkout-form" onsubmit="submitOrder(event)">
+        <label for="name">Full name</label>
+        <input id="name" type="text" required />
+
+        <label for="address">Address</label>
+        <textarea id="address" rows="3" required></textarea>
+
+        <label for="payment">Payment method</label>
+        <select id="payment" required>
+          <option value="card">Credit/Debit Card</option>
+          <option value="cod">Cash on Delivery</option>
+        </select>
+
+        <button class="place-order">Place Order</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>Thank you for shopping with ClickMart</p>
+  </footer>
+</body>
+</html>
